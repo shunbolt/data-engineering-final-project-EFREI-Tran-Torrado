@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Twitter search engine</title>
+	<link href="{{ url_for('static',filename='styles/style.css') }}" rel="stylesheet">
+</head>
+<body>
+<form method="POST" action="" >
+    <center>
+    <img name='twitter_icon' src="{{ url_for('static', filename='twitter_icon.png')}}"> <br>
+    <H1>Twitter search engine - Donald Trump edition</H1>
+    <H3>by Raphaël Tran & Yoann Torrado </H3>
+    <label for="name">Enter your sentence here:</label>
+    <input type="text" name="sentence"/> <br>
+    <input type="submit" name="button_submit"/> <br>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>  Id </th>
+                <th> Tweets result </th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--
+            <tr>
+                <td> 1 </td>
+                <td> First result </td>
+            </tr>
+            <tr>
+                <td> 2 </td>
+                <td> Second result </td>
+            </tr>
+        -->
+        </tbody>
+    </table>
+
+    </center>
+</form>
+</body>
+</html>
