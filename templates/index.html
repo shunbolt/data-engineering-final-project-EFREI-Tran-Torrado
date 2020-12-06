@@ -13,11 +13,13 @@
     <label for="name">Enter your sentence here:</label>
     <input type="text" name="sentence"/> <br>
     <input type="submit" name="button_submit"/> <br>
-    
+    </center>
+</form>
+<center>
     <table border="1">
         <thead>
             <tr>
-                <th>  Id </th>
+                <th>Id</th>
                 <th> Tweets result </th>
             </tr>
         </thead>
@@ -32,10 +34,10 @@
                 <td> Second result </td>
             </tr>
         -->
+        {{ tweets|safe }}
         </tbody>
     </table>
+</center>
 
-    </center>
-</form>
 </body>
 </html>
