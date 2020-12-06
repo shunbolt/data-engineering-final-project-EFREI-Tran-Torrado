@@ -17,6 +17,7 @@ pipeline {
 
     stage('Remove docker container') {
       steps {
+        sh 'docker stop twitter'
         sh '''docker rm -f twitter
 
 '''
