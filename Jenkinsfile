@@ -2,8 +2,19 @@ pipeline {
   agent any
   stages {
     stage('Build docker image') {
-      steps {
-        sh 'docker build -t webapp .'
+      parallel {
+        stage('Build docker image') {
+          steps {
+            sh 'docker build -t webapp .'
+          }
+        }
+
+        stage('Stop all previous instances of containers') {
+          steps {
+            sh 'docker stop $(docker ps -a -q)'
+          }
+        }
+
       }
     }
 
