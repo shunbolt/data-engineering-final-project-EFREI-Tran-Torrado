@@ -9,7 +9,7 @@ pipeline {
 
     stage('Run docker image') {
       steps {
-        sh 'docker run -d -p 5000:5000 --name twitter_app webapp'
+        sh 'docker run -d -p 5000:5000 --name twitter_webapp webapp'
       }
     }
 
