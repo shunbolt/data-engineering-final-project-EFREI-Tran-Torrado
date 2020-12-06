@@ -9,14 +9,13 @@ pipeline {
 
     stage('Run docker image') {
       steps {
-        sh 'docker run -d -p 5000:5000 --name twitter_webapp webapp'
+        sh 'docker run -d -p 5000:5000 --name twitter webapp'
       }
     }
 
     stage('Remove docker container') {
       steps {
-        sh '''docker rm -f twitter_webapp
-
+        sh '''docker rm -f twitter
 
 '''
       }
