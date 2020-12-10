@@ -5,7 +5,7 @@ def run_app(){
 }
 
 def test_app(){
-  sh 'python model_test.py'
+  bat 'python model_test.py'
 }
 
 def down_app(){
