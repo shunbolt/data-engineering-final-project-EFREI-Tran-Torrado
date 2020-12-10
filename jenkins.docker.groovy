@@ -3,7 +3,7 @@ def build_app(){
 }
 
 def run_app(){
-   sh 'docker-compose up -d'
+   sh 'docker-compose up -d --build'
 }
 
 def test_app(){
