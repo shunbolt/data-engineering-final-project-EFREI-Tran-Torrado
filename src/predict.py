@@ -10,14 +10,14 @@ from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from nltk.tokenize import word_tokenize
 
 
-def prediction():
+def prediction(tweet):
 
     df = pd.read_csv("../data/tweets.csv")
     topn = 20
 
     model= Doc2Vec.load("../model/d2v.model")
     #to find the vector of a document which is not in training data
-    test_data = word_tokenize("make america great again".lower())
+    test_data = word_tokenize(tweet.lower())
     v1 = model.infer_vector(test_data)
 
 
