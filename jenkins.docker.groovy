@@ -1,9 +1,9 @@
 def build_app(){
-  sh 'docker build -t webapp .'
+   echo 'Build and run done through docker-compose'
 }
 
 def run_app(){
-   sh 'docker-compose up'
+   sh 'docker-compose -d up'
 }
 
 def test_app(){
@@ -17,7 +17,6 @@ def down_app(){
 def release_app(){
    echo 'docker branch not subject to release'
 }
-
 
 
 return this
