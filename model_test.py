@@ -10,8 +10,8 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(len(result),20)
         self.assertEqual(len(score),20)
         
-    def test_Train(self):
-        self.assertEqual(train("data/tweets.csv","model/test.model"),True)
+    #def test_Train(self):
+        #self.assertEqual(train("data/tweets.csv","model/test.model"),True)
         
 if __name__ == '__main__':
     unittest.main()
