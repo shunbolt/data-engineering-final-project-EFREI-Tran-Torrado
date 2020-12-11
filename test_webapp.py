@@ -30,30 +30,33 @@ class BasicTests(unittest.TestCase):
         response = requests.get('http://localhost:5000')
         self.assertEqual(response.status_code, 200)
 
-    # def test_b_positive(self):
+    def test_b_search(self):
     	## Connect to localhost
-    #    self.driver.get('http://localhost:5000/')  # Assuming default Flask port
-    #    self.driver.implicitly_wait(10)
+        self.driver.get('http://localhost:5000/')  # Assuming default Flask port
+        self.driver.implicitly_wait(10)
 
         ## Check input
-    #    sentence_input = self.driver.find_element_by_name('sentence')
+        sentence_input = self.driver.find_element_by_name('sentence')
 
         ## Fill input
-    #    sentence_input.send_keys('I am happy')
+        sentence_input.send_keys('fraud')
 
         ## Check submit button and submit form
-    #    submit_button = self.driver.find_element_by_name('button_submit')
-    #    submit_button.send_keys(Keys.ENTER)
+        submit_button = self.driver.find_element_by_name('button_submit')
+        submit_button.send_keys(Keys.ENTER)
 
-    #    time.sleep(3)
+        time.sleep(3)
 
         ## Check if no redirect ( may delete )
-    #    new_url = self.driver.current_url
-    #    self.assertEqual(new_url, 'http://localhost:5000/')
+        new_url = self.driver.current_url
+        self.assertEqual(new_url, 'http://localhost:5000/')
 
         ## Get face value
-    #    face_picture = self.driver.find_element_by_name('sentiment-face')
-    #    self.assertIn('positive_face.png', face_picture.get_attribute("src"))
+        first_tweet = self.driver.find_element_by_id("1")
+        tweet_content = first_tweet.find_elements_by_tag_name("td")[1]
+        self.assertIn('My opponent is a fraud !',tweet_content.text)
+        # face_picture = self.driver.find_element_by_name('sentiment-face')
+        # self.assertIn('positive_face.png', face_picture.get_attribute("src"))
 
 if __name__ == '__main__':
     unittest.main()		

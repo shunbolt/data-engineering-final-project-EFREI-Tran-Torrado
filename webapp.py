@@ -11,7 +11,7 @@ def get_tweet(sentence):
 	else:
 		tw = "Loser !"
 
-	block = "<tr> <td>" + str(index) + "</td> <td>" + tw + "</td> </tr>"
+	block = "<tr id=" + str(index) + " > <td>" + str(index) + "</td> <td>" + tw + "</td> </tr>"
 	return render_template('index.html', tweets=block)
 
 @app.route('/', methods=['GET','POST'])
