@@ -3,7 +3,6 @@ import requests
 import unittest
 import time 
 
-from app import app
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
