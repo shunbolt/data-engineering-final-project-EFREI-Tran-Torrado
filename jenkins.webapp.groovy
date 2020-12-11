@@ -1,7 +1,9 @@
 def build_app(){
+  sh 'echo whoami'
 }
 
 def run_app(){
+  sh 'nohup python webapp.py'
 }
 
 def test_app(){
@@ -9,6 +11,7 @@ def test_app(){
 }
 
 def down_app(){
+
 }
 
 def release_app(){
