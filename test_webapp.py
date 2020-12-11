@@ -52,10 +52,10 @@ class BasicTests(unittest.TestCase):
         new_url = self.driver.current_url
         self.assertEqual(new_url, 'http://localhost:5000/')
 
-        ## Get face value
-        first_tweet = self.driver.find_element_by_id("1")
+        ## Get value for 
+        first_tweet = self.driver.find_element_by_id("13")
         tweet_content = first_tweet.find_elements_by_tag_name("td")[1]
-        self.assertIn('My opponent is a fraud !',tweet_content.text)
+        self.assertIn('lied',tweet_content.text)
         # face_picture = self.driver.find_element_by_name('sentiment-face')
         # self.assertIn('positive_face.png', face_picture.get_attribute("src"))
 
