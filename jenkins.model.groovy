@@ -1,4 +1,5 @@
 def build_app(){
+  sh 'python import_nltk.py'
 }
 
 def run_app(){

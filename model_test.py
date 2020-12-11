@@ -1,6 +1,6 @@
 import unittest
 from src.predict import prediction
-from src.train import *
+# from src.train import *
 
 
 

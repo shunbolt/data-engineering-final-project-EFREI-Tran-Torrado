@@ -3,11 +3,8 @@ import string
 import re 
 import nltk
 import gensim
-from nltk.corpus import stopwords
-stop_words = set(stopwords.words('english'))
 from nltk.tokenize import word_tokenize
 from gensim.models.doc2vec import Doc2Vec, TaggedDocument
-from nltk.tokenize import word_tokenize
 
 
 def prediction(tweet,path,model_path):
