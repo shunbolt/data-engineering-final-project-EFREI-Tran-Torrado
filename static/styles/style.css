@@ -1,0 +1,21 @@
+label {
+    display: block;
+    font: 1rem 'Open Sans', sans-serif;
+}
+
+input,
+label {
+    margin: .8rem 0;
+}
+
+table,
+td, th {
+    border: 1px solid #333;
+    padding: 15 px;
+}
+
+thead,
+tfoot {
+    background-color: #333;
+    color: #fff;
+}
