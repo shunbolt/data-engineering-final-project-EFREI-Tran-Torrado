@@ -39,7 +39,7 @@ class BasicTests(unittest.TestCase):
         sentence_input = self.driver.find_element_by_name('sentence')
 
         ## Fill input
-        sentence_input.send_keys('fraud')
+        sentence_input.send_keys('lied')
 
         ## Check submit button and submit form
         submit_button = self.driver.find_element_by_name('button_submit')
@@ -52,9 +52,36 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(new_url, 'http://localhost:5000/')
 
         ## Get value for 
-        first_tweet = self.driver.find_element_by_id("13")
+        first_tweet = self.driver.find_element_by_id("0")
         tweet_content = first_tweet.find_elements_by_tag_name("td")[1]
         self.assertIn('lied',tweet_content.text)
+        # face_picture = self.driver.find_element_by_name('sentiment-face')
+        # self.assertIn('positive_face.png', face_picture.get_attribute("src"))
+
+    def test_c_empty(self):
+        ## Connect to localhost
+        self.driver.get('http://localhost:5000/')  # Assuming default Flask port
+        self.driver.implicitly_wait(10)
+
+        ## Check input
+        sentence_input = self.driver.find_element_by_name('sentence')
+
+        ## Fill input
+        sentence_input.send_keys("")
+
+        ## Check submit button and submit form
+        submit_button = self.driver.find_element_by_name('button_submit')
+        submit_button.send_keys(Keys.ENTER)
+
+        time.sleep(3)
+
+        ## Check if no redirect ( may delete )
+        new_url = self.driver.current_url
+        self.assertEqual(new_url, 'http://localhost:5000/')
+
+        ## Get value for 
+        tweet_table = self.driver.find_element_by_tag_name("tbody")
+        self.assertEqual('',tweet_table.text)
         # face_picture = self.driver.find_element_by_name('sentiment-face')
         # self.assertIn('positive_face.png', face_picture.get_attribute("src"))
 
