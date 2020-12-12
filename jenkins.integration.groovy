@@ -3,7 +3,7 @@ def build_app(){
 }
 
 def run_app(){
-  sh 'nohup python webapp.py'
+  sh 'nohup python webapp.py &'
 }
 
 def test_app(){
