@@ -11,7 +11,7 @@ def test_app(){
 }
 
 def down_app(){
-  sh 'process_flask_credit=`netstat -tulnp | grep :5000 | cut -c81-`
+  sh 'process_flask_credit=`netstat -tulnp | grep :5000 | cut -c81-`'
   sh 'process_id=`echo "$process_flask_credit" | tr -cd [:digit:]`'
   sh 'kill -9 $process_id' 
 }
