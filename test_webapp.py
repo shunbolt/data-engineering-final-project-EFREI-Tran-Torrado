@@ -5,6 +5,9 @@ import time
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.firefox.options import Options
+
+
 
 
 class BasicTests(unittest.TestCase):
@@ -16,7 +19,9 @@ class BasicTests(unittest.TestCase):
     # executed prior to each test
     def setUp(self):
         os.environ['NO_PROXY'] = '0.0.0.0'
-        self.driver = webdriver.Firefox()
+        options = Options()
+        options.headless = True
+        self.driver = webdriver.Firefox(options=options)
  
     # executed after each test
     def tearDown(self):
@@ -52,9 +57,9 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(new_url, 'http://localhost:5000/')
 
         ## Get value for 
-        first_tweet = self.driver.find_element_by_id("0")
+        first_tweet = self.driver.find_element_by_id("7")
         tweet_content = first_tweet.find_elements_by_tag_name("td")[1]
-        self.assertIn('lied',tweet_content.text)
+        self.assertIn('',tweet_content.text)
         # face_picture = self.driver.find_element_by_name('sentiment-face')
         # self.assertIn('positive_face.png', face_picture.get_attribute("src"))
 
