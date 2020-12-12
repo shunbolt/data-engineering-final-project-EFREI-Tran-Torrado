@@ -3,9 +3,9 @@ import requests
 import unittest
 import time 
 
-from app import app
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.firefox.options import Options
 
 
 class BasicTests(unittest.TestCase):
@@ -17,7 +17,9 @@ class BasicTests(unittest.TestCase):
     # executed prior to each test
     def setUp(self):
         os.environ['NO_PROXY'] = '0.0.0.0'
-        self.driver = webdriver.Firefox()
+	options = Options()
+        options.headless = True
+        self.driver = webdriver.Firefox(options=options)
  
     # executed after each test
     def tearDown(self):
