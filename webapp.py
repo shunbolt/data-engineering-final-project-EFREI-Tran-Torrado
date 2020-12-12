@@ -1,18 +1,18 @@
 from flask import Flask, request, render_template
+from src.predict import prediction
 
 app = Flask(__name__)
 
 def get_tweet(sentence):
-	index = 1
-	if sentence == 'election':
-		tw = "This election is in my favor !"
-	elif sentence == 'fraud':
-		tw = "My opponent is a fraud !"
-	else:
-		tw = "Loser !"
+	
+	tweets_block = ""
+	if sentence:
+		res, score = prediction(sentence,"data/tweets.csv","model/d2v.model")
+		for index in range(len(res)):
+			tweets_block += "<tr id=" + str(index) + " > <td>" + str(index) + "</td> <td>" + res[index] + "</td> </tr>"
 
-	block = "<tr id=" + str(index) + " > <td>" + str(index) + "</td> <td>" + tw + "</td> </tr>"
-	return render_template('index.html', tweets=block)
+	
+	return render_template('index.html', tweets=tweets_block)
 
 @app.route('/', methods=['GET','POST'])
 def index():
