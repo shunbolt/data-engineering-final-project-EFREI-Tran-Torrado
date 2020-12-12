@@ -17,7 +17,7 @@ class BasicTests(unittest.TestCase):
     # executed prior to each test
     def setUp(self):
         os.environ['NO_PROXY'] = '0.0.0.0'
-	options = Options()
+        options = Options()
         options.headless = True
         self.driver = webdriver.Firefox(options=options)
  
