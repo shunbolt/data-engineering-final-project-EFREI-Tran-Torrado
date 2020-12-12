@@ -3,7 +3,7 @@ def build_app(){
 }
 
 def run_app(){
-  sh 'gnome-terminal --tab -- bash -c "python webapp.py"'
+  sh 'nohup python webapp.py'
 }
 
 def test_app(){
