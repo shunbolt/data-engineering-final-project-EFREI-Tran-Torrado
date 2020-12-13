@@ -4,12 +4,13 @@ pipeline{
   stages {
 	  stage ('Build Scripe'){
 	  	steps{
-			  script{
+			script{
 				 def filename = 'jenkins.' + env.BRANCH_NAME + '.groovy'
 				 groovyfile = load filename
-			  }
-		  }
+			}
+		}
 	  }
+    
     stage('Build Flask app'){
       steps{
         script{
@@ -47,3 +48,4 @@ pipeline{
     }
   }
 }
+
