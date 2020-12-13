@@ -8,6 +8,8 @@ COPY requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt
 
+RUN python import_nltk.py
+
 COPY . .
 
 EXPOSE 5000

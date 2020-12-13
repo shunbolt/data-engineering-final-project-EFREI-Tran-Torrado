@@ -6,8 +6,12 @@ def run_app(){
    sh 'docker-compose up -d --build'
 }
 
+def test_web(){
+  sh 'python test_webapp.py'
+}
+
 def test_app(){
-  echo 'docker branch does not perform unit or integration tests'
+  test_web()
 }
 
 def down_app(){
