@@ -7,3 +7,4 @@ services:
     container_name: twitter
     ports:
       - "5000:5000"
+      - "8010:8010"

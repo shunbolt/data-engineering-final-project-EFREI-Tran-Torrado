@@ -15,5 +15,6 @@ RUN python import_nltk.py
 COPY . .
 
 EXPOSE 5000
+EXPOSE 8010
 
 CMD ["python","webapp.py"]
