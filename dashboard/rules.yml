@@ -1,0 +1,18 @@
+groups:
+  - name: example
+    rules:
+    - alert: RequestLoad
+      expr: flask_twitter_webapp_calls_total > 10
+      for: 2s
+    - alert: InstanceDown
+      expr: up == 0
+      for: 2s
+    - alert: HostOutOfDiskSpace
+      expr: 1 - (node_filesystem_avail_bytes{instance=~'$node',fstype=~"ext4|xfs"} / node_filesystem_size_bytes{instance=~'$node',fstype=~"ext4|xfs"}) > 0.5
+      for: 1m
+    - alert: CriticalCPULoad
+      expr: 100 — (avg by(instance) (irate(node_cpu_seconds_total{job="node_exporter",mode="idle"}[5m])) * 100) > 70
+      for: 5m
+    - alert: MemoryUsageHigh
+      expr : avg_over_time(node_memory_MemAvailable_bytes {job=~"node_exporter"}[15s]) / avg_over_time(node_memory_MemTotal_bytes {job=~"node_exporter"}[15s]) < 0.20
+      for: 5m
