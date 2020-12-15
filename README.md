@@ -46,4 +46,4 @@ If you have an issue regarding Geckodriver, you can follows these steps on a Uni
 
 ### Running monitoring : 
 
--
+- We launch Prometheus, Node_explorer and Grafana and then we can observe the dashboard into Grafana
